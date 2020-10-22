@@ -2,6 +2,7 @@ import { AddArticle, RemoveArticle } from "./article.action";
 import { State, Action, StateContext, Selector } from "@ngxs/store";
 import { Article } from "./article";
 import { Injectable } from "@angular/core";
+import { patch, removeItem } from "@ngxs/store/operators";
 
 export interface ArticleStateModel {
   articles: Article[];
@@ -32,11 +33,11 @@ export class ArticleState {
   @Action(RemoveArticle)
   delete(
     { getState, patchState }: StateContext<ArticleStateModel>,
-    { payload }: AddArticle
+    { payload }: RemoveArticle
   ) {
     const state = getState();
-    patchState({
-      articles: [...state.articles, payload]
+    patch({
+      articles: removeItem<Article>(a => a.nom === payload.nom)
     });
   }
 }

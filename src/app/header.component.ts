@@ -24,7 +24,9 @@ import { Observable } from "rxjs";
         </ul>
       </div>
     </nav>
+
     <produit></produit>
+    <panier></panier>
   `,
 
   styles: [
