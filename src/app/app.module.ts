@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { ProduitComponent } from "./produit.component";
+import { HeaderComponent } from "./header.component";
 import { HttpServiceService } from "./http-service.service";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -17,7 +18,7 @@ import { ArticleState } from "./article.state";
     HttpClientModule,
     NgxsModule.forRoot([ArticleState])
   ],
-  declarations: [AppComponent, ProduitComponent],
+  declarations: [AppComponent, ProduitComponent, HeaderComponent],
   bootstrap: [AppComponent],
   providers: [HttpServiceService]
 })

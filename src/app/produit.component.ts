@@ -25,13 +25,15 @@ import { Observable } from "rxjs";
       Rechercher
     </button>
 
-    <div class="carreJeu" *ngFor="let art of Articles">
-      <img src="{{ art.img }}" />
-      <h4>{{ art.nom }}</h4>
-      <p>{{ art.prix }}</p>
-      <button (click)="addArticle(art)">
-        Ajouter au panier
-      </button>
+    <div class="folder">
+      <div class="carreJeu" *ngFor="let art of Articles">
+        <img src="{{ art.img }}" />
+        <h4>{{ art.nom }}</h4>
+        <p>{{ art.prix }}</p>
+        <button (click)="addArticle(art)">
+          Ajouter au panier
+        </button>
+      </div>
     </div>
   `,
 
@@ -73,6 +75,9 @@ import { Observable } from "rxjs";
       }
       .carreJeu > button {
         width: 50%;
+      }
+      .folder {
+        display: flex;
       }
     `
   ]
