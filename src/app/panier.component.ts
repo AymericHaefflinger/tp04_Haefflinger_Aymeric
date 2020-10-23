@@ -22,7 +22,9 @@ import { Observable } from "rxjs";
         <p>
           {{ item.prix }}
         </p>
-        <a href="#!" class="secondary-content" (click)="removeArticle(item)"
+        <a
+          class="btn btn-primary secondary-content"
+          (click)="removeArticle(item)"
           ><i class="material-icons">Enlever du panier</i></a
         >
       </li>

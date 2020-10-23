@@ -31,13 +31,11 @@ export class ArticleState {
   }
 
   @Action(RemoveArticle)
-  delete(
+  rm(
     { getState, patchState }: StateContext<ArticleStateModel>,
     { payload }: RemoveArticle
   ) {
     const state = getState();
-    patch({
-      articles: removeItem<Article>(a => a.nom === payload.nom)
-    });
+    state.articles.splice(state.articles.indexOf(payload), 1);
   }
 }
