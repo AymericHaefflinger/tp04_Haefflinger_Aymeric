@@ -15,8 +15,9 @@ import { Observable } from "rxjs";
       <div class="nav-wrapper teal lighten-2">
         <a href="#" class="brand-logo">Nos jeux</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/catalogue">Catalogue</a></li>
           <li>
-            <a href="#.html"
+            <a href="/panier"
               >Votre Panier :
               {{ (articlePanier$ | async).length }} article(s)</a
             >
@@ -24,9 +25,6 @@ import { Observable } from "rxjs";
         </ul>
       </div>
     </nav>
-
-    <produit></produit>
-    <panier></panier>
   `,
 
   styles: [

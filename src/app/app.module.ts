@@ -8,6 +8,9 @@ import { HeaderComponent } from "./header.component";
 import { PanierComponent } from "./panier.component";
 import { HttpServiceService } from "./http-service.service";
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+
+import { AppRoutingModule } from "./app-routing.module";
 
 import { NgxsModule } from "@ngxs/store";
 import { ArticleState } from "./article.state";
@@ -16,6 +19,7 @@ import { ArticleState } from "./article.state";
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule,
     HttpClientModule,
     NgxsModule.forRoot([ArticleState])
   ],
@@ -26,6 +30,7 @@ import { ArticleState } from "./article.state";
     PanierComponent
   ],
   bootstrap: [AppComponent],
-  providers: [HttpServiceService]
+  providers: [HttpServiceService],
+  exports: [AppRoutingModule, HeaderComponent, ProduitComponent]
 })
 export class AppModule {}
