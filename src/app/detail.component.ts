@@ -7,9 +7,11 @@ import { Store, Select } from "@ngxs/store";
 import { RemoveArticle } from "./article.action";
 import { ArticleState } from "./article.state";
 import { Observable } from "rxjs";
+import { AddArticle } from "./article.action";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: "panier",
+  selector: "detail",
   template: `
     <h4>Votre Panier</h4>
     <ul class="collection with-header">
@@ -21,6 +23,11 @@ import { Observable } from "rxjs";
         </p>
       </li>
       <li>Ceci est la vue détaillée</li>
+      <li>
+        <button class="btn btn-primary" (click)="addArticle(art)">
+          Ajouter au panier
+        </button>
+      </li>
     </ul>
   `,
 
@@ -40,19 +47,31 @@ import { Observable } from "rxjs";
     `
   ]
 })
-export class PanierComponent {
-  @Input()
-  customNom: string;
-  @Input()
-  customPrix: string;
-  @Input()
-  customImage: string;
-
+export class DetailComponent {
+  allArt: Article[];
   art: Article;
 
+  constructor(
+    public HttpServiceService: HttpServiceService,
+    private route: ActivatedRoute,
+    private store: Store
+  ) {}
+
+  getData(): void {
+    this.HttpServiceService.getData().subscribe(Articles =>
+      Articles.forEach((myObject, index) => {
+        if (myObject.id == this.route.snapshot.params.id) {
+          this.art = myObject;
+        }
+      })
+    );
+  }
+
+  addArticle(a: Article) {
+    this.store.dispatch(new AddArticle(a)).subscribe();
+  }
+
   ngOnInit() {
-    this.art.nom = this.customNom;
-    this.art.prix = this.customPrix;
-    this.art.img = this.customImage;
+    this.getData();
   }
 }

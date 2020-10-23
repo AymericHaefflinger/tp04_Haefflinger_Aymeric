@@ -6,6 +6,8 @@ import { AppComponent } from "./app.component";
 import { ProduitComponent } from "./produit.component";
 import { HeaderComponent } from "./header.component";
 import { PanierComponent } from "./panier.component";
+import { AccueilComponent } from "./accueil.component";
+import { DetailComponent } from "./detail.component";
 import { HttpServiceService } from "./http-service.service";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
@@ -27,7 +29,9 @@ import { ArticleState } from "./article.state";
     AppComponent,
     ProduitComponent,
     HeaderComponent,
-    PanierComponent
+    PanierComponent,
+    AccueilComponent,
+    DetailComponent
   ],
   bootstrap: [AppComponent],
   providers: [HttpServiceService],

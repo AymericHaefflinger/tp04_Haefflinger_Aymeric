@@ -21,7 +21,7 @@ import { Observable } from "rxjs";
     />
     <label for="nom">Nom du jeu</label>
 
-    <button (click)="searchArticle(nomArticle.value)">
+    <button class="btn btn-primary" (click)="searchArticle(nomArticle.value)">
       Rechercher
     </button>
 
@@ -30,9 +30,13 @@ import { Observable } from "rxjs";
         <img src="{{ art.img }}" />
         <h4>{{ art.nom }}</h4>
         <p>{{ art.prix }}</p>
-        <button (click)="addArticle(art)">
+        <button class="btn btn-primary" (click)="addArticle(art)">
           Ajouter au panier
         </button>
+
+        <a href="magasin/catalogue/{{ art.id }}" class="btn btn-primary"
+          >Détails</a
+        >
       </div>
     </div>
   `,

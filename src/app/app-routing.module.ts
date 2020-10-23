@@ -1,12 +1,16 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ProduitComponent } from "./produit.component";
-import { PanierComponent } from "./panier.component";
+import { AccueilComponent } from "./accueil.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/catalogue", pathMatch: "full" },
-  { path: "catalogue", component: ProduitComponent },
-  { path: "panier", component: PanierComponent }
+  { path: "", redirectTo: "/accueil", pathMatch: "full" },
+  { path: "accueil", component: AccueilComponent },
+  {
+    path: "magasin",
+    loadChildren: () =>
+      import("./magasin-rooting.module").then(m => m.MagasinRoutingModule)
+  },
+  { path: "**", redirectTo: "/accueil", pathMatch: "full" }
 ];
 
 @NgModule({
