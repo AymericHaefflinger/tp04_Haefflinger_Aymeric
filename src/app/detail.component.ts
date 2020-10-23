@@ -68,7 +68,9 @@ export class DetailComponent {
   }
 
   addArticle(a: Article) {
-    this.store.dispatch(new AddArticle(a)).subscribe();
+    if (this.art.nom != "") {
+      this.store.dispatch(new AddArticle(a)).subscribe();
+    }
   }
 
   ngOnInit() {

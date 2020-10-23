@@ -34,9 +34,7 @@ import { Observable } from "rxjs";
           Ajouter au panier
         </button>
 
-        <a href="magasin/catalogue/{{ art.id }}" class="btn btn-primary"
-          >Détails</a
-        >
+        <a routerLink="{{ art.id }}" class="btn btn-primary">Détails</a>
       </div>
     </div>
   `,

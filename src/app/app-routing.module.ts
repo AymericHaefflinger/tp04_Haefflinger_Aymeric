@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AccueilComponent } from "./accueil.component";
+import { CompteComponent } from "./compte.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/accueil", pathMatch: "full" },
@@ -10,6 +11,7 @@ const routes: Routes = [
     loadChildren: () =>
       import("./magasin-rooting.module").then(m => m.MagasinRoutingModule)
   },
+  { path: "compte", component: CompteComponent },
   { path: "**", redirectTo: "/accueil", pathMatch: "full" }
 ];
 

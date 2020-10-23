@@ -13,11 +13,12 @@ import { Observable } from "rxjs";
   template: `
     <nav>
       <div class="nav-wrapper teal lighten-2">
-        <a href="#" class="brand-logo">Nos jeux</a>
+        <a erLink="/" class="brand-logo">Nos jeux</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/magasin/catalogue">Catalogue</a></li>
+          <li><a routerLink="/compte">Votre Compte</a></li>
+          <li><a routerLink="/magasin/catalogue">Catalogue</a></li>
           <li>
-            <a href="/magasin/panier"
+            <a routerLink="/magasin/panier"
               >Votre Panier :
               {{ (articlePanier$ | async).length }} article(s)</a
             >
